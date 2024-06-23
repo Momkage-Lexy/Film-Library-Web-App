@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!-- Container width 12 picture, text, button -->
+<div class="container-fluid main">
+    <div class="row main-row">
+        <div class="col-md-7"></div>
+        <div class="col-md-3 landing-col">
+            <div id="rgb-col">
+                <img src="~/images/home-page-col.jpg" alt="pink to blue color half wheel">
+                <h2 class="main-heading">RGB Picker</h2>
+                <p class="main-text">Dive into the world of color with our RGB Picker application. 
+                                    Customize your colors by setting values for red, green, and blue components, 
+                                    and instantly see the resulting color. Experiment with endless combinations to find the perfect shade for your project. 
+                                    Click here to start playing with colors!
+                </p>
+                <div>
+                    <a asp-controller="Home" asp-area="" asp-action="RGBColor" method="get"><button type="submit" id="rgb-button">Try it out!</button></a> 
+                    <div class="button-container">
+                        <button type="button" class="fake left"><img src="~/images/left-arrow.png"></button>
+                        <button type="button" class="right"><img src="~/images/right-arrow.png"></button>
+                    </div>
+                </div>
+            </div>
+            <div id="interpolation-col">
+                <img src="~/images/home-page-col.jpg" alt="pink to blue color half wheel">
+                <h2 class="main-heading">Color Interpolation</h2>
+                <p class="main-text">Pick two colors and define the number of shades you want in between. 
+                                    Watch as our application seamlessly blends these colors,
+                                    unveiling a spectrum of harmonious gradients. 
+                                    Unleash your creativity and craft captivating color transitions effortlessly. 
+                                    Click here to delve into the art of color blending!
+                </p>
+                <div>
+                    <a asp-area="" asp-controller="ColorInterpolation" asp-action="Interpolation" method="get"><button type="submit" id="interpolation-button">Try it out!</button></a>
+                    <div class="button-container">
+                        <button type="button" class="left"><img src="~/images/left-arrow.png"></button>
+                        <button type="button" class="fake right"><img src="~/images/right-arrow.png"></button>
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

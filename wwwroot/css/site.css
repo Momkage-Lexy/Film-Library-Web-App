@@ -1,0 +1,148 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.main{
+  background-image: url("/images/home-page.jpg"); /*Image by freepik*/
+  background-size: cover;
+  height: 545px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.landing-col{
+  margin-top: 60px;
+  padding-top: 30px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.rbg-title, .interpolation-title{
+  text-align:center;
+}
+
+#interpolation-col{
+  display: none;
+}
+
+button {
+  font-size:15px;
+  font-family:Arial;
+  width:140px;
+  height:50px;
+  border-width:1px;
+  color:#fff;
+  border-color:#18ab29;
+  font-weight:bold;
+  border-top-left-radius:28px;
+  border-top-right-radius:28px;
+  border-bottom-left-radius:28px;
+  border-bottom-right-radius:28px;
+  text-shadow: 1px 1px 0px #2f6627;
+  background:#44c767;
+}
+
+button:hover {
+  background: #5cbf2a
+}
+
+.right{
+  color: grey;
+  background:none;
+  border:none;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+  text-shadow: none;
+}
+
+.left{
+  color: grey;
+  background:none;
+  border:none;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+  text-shadow: none;
+}
+
+.fake{
+  opacity: .5;
+}
+      
+.left:hover, .right:hover, .fake:hover{
+  background: none;
+}
+
+.button-container{
+  display:flex;
+  margin-left:40px;
+}
+
+.square{
+  width: 200px;
+  height: 200px;
+}
+
+#color-display{
+  width: 200px;
+  height: 25px;
+}
+
+#color-list{
+  width: 100px;
+  height: 25px;
+}
+
+ul{
+  list-style-type: none;
+}
+
+#numofcolors, #color1, #color2{
+  width: 250px;
+}
+.rgbLabel{
+  background-color: lightgrey;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  float:left;
+  border: 1px solid grey;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  font-size: 25px;
+}
+
+#R, #B, #G{
+  height: 40px;
+  width: 250px;
+}
+
+.field-validation-error {color: rgb(56, 54, 54);}
+.field-validation-valid { display: none;}
+.input-validation-error { border: 1px solid #f00; background-color: #fee; }
+.validation-summary-errors { font-weight: bold; color: rgb(56, 54, 54);}
+.validation-summary-valid { display: none;}

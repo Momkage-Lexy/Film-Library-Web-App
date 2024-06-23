@@ -1,0 +1,56 @@
+@model ColorInterpolation
+
+@{
+    ViewData["Title"] = "Interpolation";
+}
+
+<div class="container rgb">
+    <div class="row interpolation-row">
+        <h2 class="interpolation-title">Interpolate from one color to another</h2>
+        <p class="interpolation-title">Please enter colors in HTML Hexidecimal format #AABBCC</p>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <!-- form -->
+            <form asp-controller="ColorInterpolation" asp-action="Interpolation" method="post" onsubmit="return validateForm()">
+                <div asp-validation-summary="All"></div>
+                <label for="color1">First Color:</label>
+                <input asp-for="Color1" id="color1" name="color1"><br><br>
+                <label for="color2">Second Color:</label>
+                <input asp-for="Color2" id="color2" name="color2"><br><br>
+                <label for="numofcolors">Number of colors in between:</label>
+                <input asp-for="NumOfColors" id="numofcolors" name="numofcolors" min="1" max="100"><br><br>
+                <button type="submit">Generate Colors</button>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <div class="row no-gutters">
+                <div class="col-md-3 hex-list">
+                    <!-- Hex list -->
+                    <ul>
+                        @if(Model != null) 
+                        {
+                            <li><h5>HTML</h5></li>
+                            @foreach (var color in Model.newColor)
+                            {
+                                <li id="color-list">@color</li>
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="col-md-9" >
+                    <ul>
+                        @if(Model != null) 
+                        {
+                            <li><h5>Color</h5></li>
+                            @foreach (var color in Model.newColor)
+                            {
+                                <li id="color-display" style="background-color: @color"></li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
