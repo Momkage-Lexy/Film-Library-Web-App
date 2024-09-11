@@ -1,0 +1,106 @@
+@model FinalProject.Models.Account
+@{
+    ViewData["Title"] = "Account Page";
+}
+
+@* Form for user account creation *@
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Convergence&display=swap" rel="stylesheet">
+</head>
+<div class="container-fluid" id="accountContainer">
+    <div class="row" id="accountRow">
+        <div class="col-md-4 formSpacer"></div>
+        <div class="col-md-4" id="accountCol">
+            <h1>Create Account</h1>
+            <hr>
+            <form asp-controller="Home" asp-action="MovieView" id="create">
+                <h5><label for="UserName">UserName: </label></h5>
+                <input type="text" name="UserName" id="UserName"><br><br>
+                <h5>Favorite Genres: </h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="checkbox" name="Favorites" value="Adventure">
+                        <label for="adventure">Adventure</label><br>
+                        <input type="checkbox" name="Favorites" value="Action">
+                        <label for="action">Action</label><br>
+                        <input type="checkbox" name="Favorites" value="Animation">
+                        <label for="animation">Animation</label><br>
+                        <input type="checkbox" name="Favorites" value="Comedy">
+                        <label for="comedy">Comedy</label><br>
+                        <input type="checkbox" name="Favorites" value="Crime">
+                        <label for="crime">Crime</label><br>
+                        <input type="checkbox" name="Favorites" value="Documentary">
+                        <label for="documentary">Documentary</label><br>
+                        <input type="checkbox" name="Favorites" value="Drama">
+                        <label for="drama">Drama</label><br>
+                        <input type="checkbox" name="Favorites" value="Fantasy">
+                        <label for="fantasy">Fantasy</label><br>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="checkbox" name="Favorites" value="Horror">
+                        <label for="horror">Horror</label><br>
+                        <input type="checkbox" name="Favorites" value="Mystery">
+                        <label for="mystery">Mystery</label><br>
+                        <input type="checkbox" name="Favorites" value="Musical">
+                        <label for="musical">Musical</label><br>
+                        <input type="checkbox" name="Favorites" value="Romance">
+                        <label for="romance">Romance</label><br>
+                        <input type="checkbox" name="Favorites" value="Sci-Fi">
+                        <label for="sci-fi">Sci-Fi</label><br>
+                        <input type="checkbox" name="Favorites" value="Thriller">
+                        <label for="thriller">Thriller</label><br>
+                        <input type="checkbox" name="Favorites" value="Western">
+                        <label for="western">Western</label><br>
+                    </div>
+                </div>
+
+                <br>
+                <h5>Profile Icon Canvas: </h5>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="colors" id="white"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="pink"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="red"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="orange"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="yellow"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="green"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="blue"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="purple"></div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div><br>
+                <canvas id="canvas" width="300" height="300"></canvas><br>
+                <input type="hidden" id="canvasImage" name="Icon">
+                <div class="row">
+                    <div class="col-md-6"><a href="#" id="clearBtn">Clear</a></div>
+                    <div class="col-md-6"></div>
+                </div>
+                <hr>
+                <div class="row">
+
+                    <div><button type="submit" id="accountSubmit" class="buttonSpecial" disabled>Create Account</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4 formSpacer"></div>
+    </div>
+</div>

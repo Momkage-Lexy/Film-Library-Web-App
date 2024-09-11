@@ -1,0 +1,69 @@
+@model Movie
+@{
+    ViewData["Title"] = "MovieID Page";
+}
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Convergence&display=swap" rel="stylesheet">
+</head>
+
+@* Displays info about movie if selected by user from landing page or search *@
+<div class="container-fluid contentContainer">
+    <div class="row profileRow">
+        <div class="col-md-5">    
+            <form asp-controller="Search" asp-action="Results" method="get" class="searchForm">
+            <input type="text" class="searchString" name="searchString" value="Enter a movie title, keyword, or category..." />
+            <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="col-md 4" id="movieIDCol1">
+            @foreach (var item in ViewBag.account)
+            {
+                <div class="row">
+                    <div class="col-md-2">
+                        @if (!string.IsNullOrEmpty(item.Icon))
+                        {
+                        <img src="@Url.Content("~/images/" + item.Icon)" alt="User Icon" class="icon"/>
+                        }
+                    </div>
+                    <div class="col-md-2">
+                        <h1 class="nameHeader">@item.UserName</h1>
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+            }
+        </div>
+
+        <div class="col-md-3 addDiv">
+            <a asp-controller="Home" asp-action="MovieView" method="get" id="view"><button type="submit" class="add-button">View Movies</button></a> 
+            <a asp-controller="Home" asp-action="AddMovie" method="get" id="add"><button type="submit" class="add-button">Add Movie</button></a></div>
+    </div>
+    <div class="row" id="IDRow">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row">
+                
+                <div class="col-md-4" id="posterCol">
+                    <img src="~/images/@Model.ToString()" alt="@Model.Title" id="movieIDPoster">
+                </div>
+                <div class="col-md-1 vLine"></div>
+                <div class="col-md-1"></div>
+                <div class="col-md-6 movieDetails">
+                    <h2>@Model.Title</h2>
+                    <p><strong>Director:</strong> @Model.Director</p>
+                    <p><strong>Genre:</strong> @Model.Genre</p>
+                    <p><strong>Release Year:</strong> @Model.Year</p>
+                    <p><strong>Synopsis:</strong> @Model.Synopsis</p>
+                    <p><strong>Tags:</strong> @string.Join(", ", Model.Tags)</p><hr>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8"><a asp-controller="Home" asp-action="Whoops"><button type="button" class="buttonSpecial watch">Watch Now</button></a></div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

@@ -1,0 +1,149 @@
+@model FinalProject.Models.Movie
+
+@{
+    ViewData["Title"] = "AddMovie Page";
+}
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Convergence&display=swap" rel="stylesheet">
+</head>
+<input type="hidden" id="hiddenData" value="@ViewBag.accountCount" />
+<div class="container-fluid contentContainer">
+    @if (TempData["AlertMessage"] != null)
+    {
+        <div class="alert alert-warning">
+            @TempData["AlertMessage"]
+        </div>
+    }
+    <div class="row profileRow">
+        <div class="col-md-5">
+            <form asp-controller="Search" asp-action="Results" method="get" class="searchForm">
+                <input type="text" class="searchString" name="searchString"
+                    value="Enter a movie title, keyword, or category..." />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="col-md 4" id="movieIDCol1">
+            @foreach (var item in ViewBag.account)
+            {
+                <div class="row">
+                    <div class="col-md-2">
+                        @if (!string.IsNullOrEmpty(item.Icon))
+                        {
+                            <img src="@Url.Content("~/images/" + item.Icon)" alt="User Icon" class="icon" />
+                        }
+                    </div>
+                    <div class="col-md-2">
+                        <h1 class="nameHeader">@item.UserName</h1>
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+            }
+        </div>
+
+        <div class="col-md-3 addDiv">
+            <a asp-controller="Home" asp-action="MovieView" method="get" id="view"><button type="submit"
+                    class="add-button">View Movies</button></a>
+            <a asp-controller="Home" asp-action="AddMovie" method="get" id="add"><button type="submit"
+                    class="add-button">Add Movie</button></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div>
+                <h1 id="successMessage">@ViewBag.success</h1>
+            </div>
+            <form asp-controller="Home" asp-action="AddMovie" method="post" id="movieForm">
+
+                <label asp-for="Title">Movie Name: </label>
+                <input asp-for="Title" class="form-control">
+                <span asp-validation-for="Title" class="text-danger"></span>
+
+                <label asp-for="Director">Director: </label>
+                <input asp-for="Director" class="form-control">
+                <span asp-validation-for="Director" class="text-danger"></span>
+
+                <label asp-for="Genre">Genre: </label>
+                <select asp-for="Genre" class="form-control" value="chose a genre">
+                    <option value="Action">Action</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Crime">Crime</option>
+                    <option value="Documentary">Documentary</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Musical">Musical</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Western">Western</option>
+                </select>
+                <span asp-validation-for="Genre" class="text-danger"></span>
+
+                <label for="Year">Year: </label>
+                <select asp-for="Year" id="Year" class="form-control">
+                    @for (int year = 1990; year <= 2025; year++)
+                    {
+                        <option value="@year">@year</option>
+                    }
+                </select>
+                <span asp-validation-for="Year" class="text-danger"></span>
+
+
+                <label asp-for="Synopsis">Synopsis</label>
+                <input asp-for="Synopsis" class="form-control">
+                <span asp-validation-for="Synopsis" class="text-danger"></span><br>
+                <label asp-for="Tags">Movie Tags:</label>
+                <input type="text" id="movieTags" name="Tags">
+                <span asp-validation-for="Tags" class="text-danger"></span>
+                <button type="button" onclick="addTag()">Add Tag</button><br>
+                <div id="tagsContainer"></div><br>
+                <h5>Poster Canvas: </h5>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="colors" id="white"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="pink"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="red"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="orange"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="yellow"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="green"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="blue"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="colors" id="purple"></div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div><br>
+                <canvas id="canvas" width="300" height="450"></canvas><br>
+                <input type="hidden" id="canvasImage" name="CanvasImage">
+                <div class="row">
+                    <div class="col-md-6"><a href="#" id="clearBtn">Clear</a></div>
+                    <div class="col-md-6"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8"><button type="submit" class="buttonSpecial watch">Add to Library</button>
+                    </div>
+                </div>
+            </form>
+            <div class="col-md-4"></div>
+        </div>
+    </div>

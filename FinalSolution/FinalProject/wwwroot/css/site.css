@@ -1,0 +1,206 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color: #A7C8E9;
+}
+
+.movie{
+  height: 200px;
+  width: 100px;
+  background-color: grey;
+  margin: 5px;
+}
+
+canvas{
+  border: 1px solid black;
+}
+
+.colors{
+  width: 20px;
+  height: 20px;
+  border: 1px solid grey
+}
+
+#white{
+  background-color: white;
+}
+
+#pink{
+  background-color: pink;
+}
+
+#red{
+  background-color: red;
+}
+
+#orange{
+  background-color: orange;
+}
+
+#yellow{
+  background-color: yellow;
+}
+
+#green{
+  background-color: green;
+}
+
+#blue{
+  background-color: rgb(16, 177, 231);
+}
+
+#purple{
+  background-color: purple;
+}
+.field-validation-error {color: #f00;}
+.field-validation-valid { display: none;}
+.input-validation-error { border: 1px solid #f00; background-color: #fee; }
+.validation-summary-errors { font-weight: bold; color: #f00;}
+.validation-summary-valid { display: none;}
+
+#indexRow1{
+  background-color: #A7C8E9;
+  padding: 90px;
+}
+
+#indexCol1{
+  background-color: #2E4965;
+  padding: 50px;
+  border: 4px solid #213953;
+  border-radius: 25% 10%;
+  color: white;
+  font-family: "Convergence", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  box-shadow: 10px 10px;
+}
+
+.buttonSpecial{
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 10px;
+  box-shadow: 10px 10px;
+}
+
+#accountContainer{
+  padding: 20px;
+}
+#accountCol{
+  padding: 20px;
+  border: 1px solid #213953;
+  font-family: "Convergence", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+#UserName{
+  width: 100%;
+}
+
+#accountSubmit{
+  width: 100%;
+}
+
+.icon{
+  width: 80%;
+  border-radius: 50%;
+}
+
+.profileRow{
+  background-color: #102C45;
+  padding: 10px;
+}
+
+.contentContainer{
+  background-color: #A7C8E9;
+  font-family: "Convergence", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding-bottom: 20px;
+}
+
+.moviePoster{
+  width: 10%;
+  padding: 5px;
+  border-radius: 10px;
+}
+.all-movies , .filtered-movies{
+  padding-left: 50px;
+}
+
+.add-button{
+  background-color: #3b6086;
+  border: 1px solid #213953;
+  border-radius: 30px;
+  box-shadow: 2px 2px;
+  color: white;
+}
+
+.nameHeader{
+  color: white;
+}
+
+#IDRow{
+  padding: 20px;
+}
+
+#movieIDPoster{
+  border-radius: 20px;
+  max-width: 100%;
+}
+
+.searchForm{
+  padding-top: 10px;
+}
+
+.searchString
+{
+  width: 500px;
+}
+.addDiv{
+  padding-top: 10px;
+}
+
+.vLine{
+  border-right: 1px solid black;
+}
+
+.movieDetails{
+  background-color: #2E4965;
+  padding: 20px;
+  color: white;
+  box-shadow: 10px 10px;
+  font-family: "Convergence", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 50% 20% / 10% 40%;
+  padding-top: 40px;
+  padding-left: 30px;
+}
+
+.watch{
+  background-color: #FDC000;
+}
+
+#view{
+  padding:10px;
+}

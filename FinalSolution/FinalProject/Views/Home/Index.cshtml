@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@* Landing Page Displays current film library and directs user to make account, search, or upload user cannot search or
+upload unless account is made *@
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Convergence&display=swap" rel="stylesheet">
+</head>
+<input type="hidden" id="isLogin" value="@ViewBag.accountCount" />
+<div class="container-fluid" id="indexContainer">
+    <div class="row landing" id="indexRow1">
+        <div class="col-md-5" id="indexCol1">
+            @* Div info about library *@
+            <h1 id="indexHeader" class="index">Parallel Cinema</h1>
+            <!-- Remove name on start up and add after account created with JS -->
+            <p id="indexParagraph" class="index">Welcome to the Parallel Cinema Archive, where familiar films take an
+                unexpected turn! Step into a world
+                where every title feels both nostalgic and new, where dinosaurs roam parking lots, and pirate adventures
+                are centered around mystical fruits. Our carefully curated collection showcases a delightful twist on
+                well-known classics, reimagining them in ways that are whimsical, adventurous, and sometimes downright
+                bizarre. Explore the familiar in an unfamiliar way, and lose yourself in the magic of movies
+                re-envisioned.</p>
+            <hr>
+
+            @* Div to direct to account *@
+            <form asp-controller="Home" asp-action="Account" method="get" id="loginForm">
+                <button type="submit" id="loginSubmit" class="buttonSpecial">Get Started!</button>
+            </form>
+        </div>
+        <div class="col-md-7" id="indexCol2">
+            <img src="~/images/indexMain.png" alt="Collage of movie posters">
+        </div>
+    </div>
+</div>

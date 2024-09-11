@@ -1,0 +1,73 @@
+@model IEnumerable<Movie>
+@{
+    ViewData["Title"] = "MovieView";
+}
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Convergence&display=swap" rel="stylesheet">
+</head>
+@* Landing Page Displays current film library and directs user to make account, search, or upload user cannot search or upload unless account is made *@
+<input type="hidden" id="hiddenData" value="@ViewBag.accountCount" />
+<div class="container-fluid contentContainer">
+    @if (TempData["AlertMessage"] != null)
+    {
+        <div class="alert alert-warning">
+            @TempData["AlertMessage"]
+        </div>
+    }
+    <div class="row profileRow">
+        <div class="col-md-5">    
+            <form asp-controller="Search" asp-action="Results" method="get" class="searchForm">
+            <input type="text" class="searchString" name="searchString" value="Enter a movie title, keyword, or category..." />
+            <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="col-md 4" id="movieIDCol1">
+            @foreach (var item in ViewBag.account)
+            {
+                <div class="row">
+                    <div class="col-md-2">
+                        @if (!string.IsNullOrEmpty(item.Icon))
+                        {
+                        <img src="@Url.Content("~/images/" + item.Icon)" alt="User Icon" class="icon"/>
+                        }
+                    </div>
+                    <div class="col-md-2">
+                        <h1 class="nameHeader">@item.UserName</h1>
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+            }
+        </div>
+
+        <div class="col-md-3 addDiv">
+            <a asp-controller="Home" asp-action="MovieView" method="get" id="view"><button type="submit" class="add-button">View Movies</button></a> 
+            <a asp-controller="Home" asp-action="AddMovie" method="get" id="add"><button type="submit" class="add-button">Add Movie</button></a></div>
+    </div>
+    <div class ="row filtered-movies">
+    @* Div to display current library *@
+        <div class="col-md-12 filtered-movies">
+            <br>
+            <h2>Your Recommended Movies</h2>
+            
+                @foreach (var movie in ViewBag.filteredMovies)
+                {
+                <a asp-controller="Home" asp-action="MovieID" asp-route-id="@movie.Id"><img src="~/images/@movie.ToString()" alt="@movie.Title" class="moviePoster"> </a>
+                }
+        </div>
+    </div>
+    <br>
+    <div class ="row all-movies">
+        <!-- Displaying All Movies -->
+        <div class="col-md-12 all-movies">
+            <h2>All Movies</h2>
+            
+                @foreach (var movie in Model)
+                {
+                    <a asp-controller="Home" asp-action="MovieID" asp-route-id="@movie.Id"><img src="~/images/@movie.ToString()" alt="@movie.Title" class="moviePoster"></a>
+                }       
+            
+        </div>
+    </div>

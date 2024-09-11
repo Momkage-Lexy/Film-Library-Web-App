@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FinalProject</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">  
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FinalProject.styles.css" asp-append-version="true" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.7.1.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.20.0/dist/jquery.validate.min.js"></script>
+    <script src="site.js">
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+            <div class="container-fluid">
+                <div class="navbar-collapse ">
+                    <ul class="navbar-nav flex-grow-1 nav justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="MovieView">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Search" asp-action="Results">Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="AddMovie">Add Movie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Account">Login</a>
+                        </li>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle nav-link text-light" id="nav-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Theme
+                            </button>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item" id="Theme2" href="#">Default</a></li>
+                                <li><a class="dropdown-item" id="Theme3" href="#">Chaos</a></li>
+                                <li><a class="dropdown-item" id="Theme1" href="#">Grey Scale</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav> 
+    </header>
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - FinalProject - Lexy Ramos
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
